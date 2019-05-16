@@ -253,6 +253,137 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/05/16/爬虫内容/urllib的用法/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="小龙人">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/logo.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="凌孝龙">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/05/16/爬虫内容/urllib的用法/" itemprop="url">未命名</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-05-16T16:43:12+08:00">
+                2019-05-16
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="urllib-request模块的用法"><a href="#urllib-request模块的用法" class="headerlink" title="urllib.request模块的用法"></a>urllib.request模块的用法</h1><h3 id="urlopen"><a href="#urlopen" class="headerlink" title="urlopen"></a>urlopen</h3><p>urllib.request.urlopen(url)，括号内可传递的参数除了url，还有timeout, cafile,capath,context。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">response = urllib.request.urlopen(url, data=data, timeout=<span class="number">100</span>,capath=None,cafile=None,context=None,cadefault=False)</span><br></pre></td></tr></table></figure>
+<h4 id="下面详细介绍各参数"><a href="#下面详细介绍各参数" class="headerlink" title="下面详细介绍各参数"></a>下面详细介绍各参数</h4><p>data：如果是字节流编码格式的内容，需要用bytes（）方法进行转化，<br>当传递这个参数后，请求方式就不再是GET，而是POST。bytes（str，encoding=’utf8’），bytes的第一个参数是字符串，如果是字典， 需要使用<em>urllib.parse.urlencode()</em>方法来将字典转化为字符串，第二个参数是编码格式。<br>timeout：设置超时时间，单位是s。<br>cafile：CA证书<br>capath：CA证书路径<br>context：必须是SSLContext类型，用来指定ssl设置。</p>
+<p>代码如下：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> urllib.parse</span><br><span class="line"><span class="keyword">import</span> urllib.request</span><br><span class="line"></span><br><span class="line">url = <span class="string">'http://httpbin.org/post'</span></span><br><span class="line"># 对参数data进行格式转化</span><br><span class="line">data = bytes(urllib.parse.urlencode(&#123;<span class="string">'word'</span>:<span class="string">'hello'</span>&#125;), encoding=<span class="string">'utf8'</span>)</span><br><span class="line"># urlopen 可传递的参数除了url 还有timout等其他参数</span><br><span class="line">response = urllib.request.urlopen(url, data=data, timeout=<span class="number">100</span>,capath=None,cafile=None,context=None,cadefault=False)</span><br><span class="line">print(response.read())</span><br></pre></td></tr></table></figure></p>
+<h3 id="Request的用法"><a href="#Request的用法" class="headerlink" title="Request的用法"></a>Request的用法</h3><p>urlopen（）方法可以实现最基本请求的发起，如果请求中需要加入Header等信息可以利用强大的Request类来构建。<br>Request的参数：url，data，header，origin_req_host, unverifable, method.<br>oringin_req_host: 请求方的host名称或IP<br>univerfable: 表示这个请求是不是无法验证的。默认为False，即有足够的请求权限。<br>method: 是一个字符串，表示请求方法，即GET,POST,PUT.</p>
+<p>代码如下：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> urllib.request</span><br><span class="line"><span class="keyword">import</span> urllib.parse</span><br><span class="line"></span><br><span class="line">url = <span class="string">'http://httpbin.org/post'</span></span><br><span class="line">headers = &#123;</span><br><span class="line">    <span class="string">'User-Agent'</span>: <span class="string">'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/50.0.2661.102 Safari/537.36'</span>,</span><br><span class="line">    <span class="string">'host'</span>: <span class="string">'httpbin.org'</span>,</span><br><span class="line">&#125;</span><br><span class="line">dict=&#123;</span><br><span class="line">    <span class="string">'name'</span>:<span class="string">'Germey'</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">data = bytes(urllib.parse.urlencode(dict),encoding=<span class="string">'utf8'</span>)</span><br><span class="line">equest = urllib.request.Request(url,data=data, headers=headers, method=<span class="string">'POST'</span>)</span><br><span class="line"># 发起请求并获取请求结果</span><br><span class="line">res = urllib.request.urlopen(request)</span><br><span class="line">print(res.read().decode(<span class="string">'utf-8'</span>))</span><br></pre></td></tr></table></figure></p>
+<p>以上就是本篇文章的所有内容</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    <div> 
+       
+    </div>
+
+   
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/05/16/爬虫内容/最简单的爬虫/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -324,7 +455,7 @@
       
         
           
-            <h2 id="第一篇爬虫日志"><a href="#第一篇爬虫日志" class="headerlink" title="第一篇爬虫日志"></a>第一篇爬虫日志</h2><h1 id="写一篇最简单的爬虫。"><a href="#写一篇最简单的爬虫。" class="headerlink" title="写一篇最简单的爬虫。"></a>写一篇最简单的爬虫。</h1><p>本次爬虫任务分为以下六条：<br>1，导入urllib.request包<br>2，写入目标url<br>3，发送请求<br>4，爬取结果，读结果<br>5，设置解码方式<br>6，打印爬取网页的各类信息（type，geturl（），info，getcode）</p>
+            <h2 id="爬虫日志"><a href="#爬虫日志" class="headerlink" title="爬虫日志"></a>爬虫日志</h2><h1 id="写一篇最简单的爬虫。"><a href="#写一篇最简单的爬虫。" class="headerlink" title="写一篇最简单的爬虫。"></a>写一篇最简单的爬虫。</h1><p>本次爬虫任务分为以下六条：<br>1，导入urllib.request包<br>2，写入目标url<br>3，发送请求<br>4，爬取结果，读结果<br>5，设置解码方式<br>6，打印爬取网页的各类信息（type，geturl（），info，getcode）</p>
 <h1 id="代码如下"><a href="#代码如下" class="headerlink" title="代码如下"></a>代码如下</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"># 导入urllib包</span><br><span class="line"><span class="keyword">import</span> urllib.request</span><br><span class="line"># 目标url</span><br><span class="line">url = <span class="string">'http://www.baidu.com'</span></span><br><span class="line"># 发送请求</span><br><span class="line">request = urllib.request.Request(url)</span><br><span class="line"># 获取请求结果</span><br><span class="line">response = urllib.request.urlopen(request)</span><br><span class="line"># 读取结果</span><br><span class="line">data = response.read()</span><br><span class="line">#设置解码方式</span><br><span class="line">data = data.decode(<span class="string">'utf-8'</span>)</span><br><span class="line">print(data)</span><br><span class="line"># 打印爬取网页的各类信息</span><br><span class="line">print(type(response))</span><br><span class="line">print(response.info)</span><br><span class="line">print(response.geturl())</span><br><span class="line">print(response.getcode)</span><br></pre></td></tr></table></figure>
 <p>以上就是本篇文章的所有内容。</p>
 
@@ -415,7 +546,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-count">2</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>

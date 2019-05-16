@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="第一篇爬虫日志写一篇最简单的爬虫。本次爬虫任务分为以下六条：1，导入urllib.request包2，写入目标url3，发送请求4，爬取结果，读结果5，设置解码方式6，打印爬取网页的各类信息（type，geturl（），info，getcode） 代码如下123456789101112131415161718# 导入urllib包import urllib.request# 目标urlurl =">
+<meta name="description" content="爬虫日志写一篇最简单的爬虫。本次爬虫任务分为以下六条：1，导入urllib.request包2，写入目标url3，发送请求4，爬取结果，读结果5，设置解码方式6，打印爬取网页的各类信息（type，geturl（），info，getcode） 代码如下123456789101112131415161718# 导入urllib包import urllib.request# 目标urlurl = &apos;ht">
 <meta name="keywords" content="Jiayou520">
 <meta property="og:type" content="article">
 <meta property="og:title" content="凌孝龙">
 <meta property="og:url" content="http://yoursite.com/2019/05/16/爬虫内容/最简单的爬虫/index.html">
 <meta property="og:site_name" content="凌孝龙">
-<meta property="og:description" content="第一篇爬虫日志写一篇最简单的爬虫。本次爬虫任务分为以下六条：1，导入urllib.request包2，写入目标url3，发送请求4，爬取结果，读结果5，设置解码方式6，打印爬取网页的各类信息（type，geturl（），info，getcode） 代码如下123456789101112131415161718# 导入urllib包import urllib.request# 目标urlurl =">
+<meta property="og:description" content="爬虫日志写一篇最简单的爬虫。本次爬虫任务分为以下六条：1，导入urllib.request包2，写入目标url3，发送请求4，爬取结果，读结果5，设置解码方式6，打印爬取网页的各类信息（type，geturl（），info，getcode） 代码如下123456789101112131415161718# 导入urllib包import urllib.request# 目标urlurl = &apos;ht">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-05-16T03:42:09.295Z">
+<meta property="og:updated_time" content="2019-05-16T08:45:56.141Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="凌孝龙">
-<meta name="twitter:description" content="第一篇爬虫日志写一篇最简单的爬虫。本次爬虫任务分为以下六条：1，导入urllib.request包2，写入目标url3，发送请求4，爬取结果，读结果5，设置解码方式6，打印爬取网页的各类信息（type，geturl（），info，getcode） 代码如下123456789101112131415161718# 导入urllib包import urllib.request# 目标urlurl =">
+<meta name="twitter:description" content="爬虫日志写一篇最简单的爬虫。本次爬虫任务分为以下六条：1，导入urllib.request包2，写入目标url3，发送请求4，爬取结果，读结果5，设置解码方式6，打印爬取网页的各类信息（type，geturl（），info，getcode） 代码如下123456789101112131415161718# 导入urllib包import urllib.request# 目标urlurl = &apos;ht">
 
 
 
@@ -320,7 +320,7 @@
       
 
       
-        <h2 id="第一篇爬虫日志"><a href="#第一篇爬虫日志" class="headerlink" title="第一篇爬虫日志"></a>第一篇爬虫日志</h2><h1 id="写一篇最简单的爬虫。"><a href="#写一篇最简单的爬虫。" class="headerlink" title="写一篇最简单的爬虫。"></a>写一篇最简单的爬虫。</h1><p>本次爬虫任务分为以下六条：<br>1，导入urllib.request包<br>2，写入目标url<br>3，发送请求<br>4，爬取结果，读结果<br>5，设置解码方式<br>6，打印爬取网页的各类信息（type，geturl（），info，getcode）</p>
+        <h2 id="爬虫日志"><a href="#爬虫日志" class="headerlink" title="爬虫日志"></a>爬虫日志</h2><h1 id="写一篇最简单的爬虫。"><a href="#写一篇最简单的爬虫。" class="headerlink" title="写一篇最简单的爬虫。"></a>写一篇最简单的爬虫。</h1><p>本次爬虫任务分为以下六条：<br>1，导入urllib.request包<br>2，写入目标url<br>3，发送请求<br>4，爬取结果，读结果<br>5，设置解码方式<br>6，打印爬取网页的各类信息（type，geturl（），info，getcode）</p>
 <h1 id="代码如下"><a href="#代码如下" class="headerlink" title="代码如下"></a>代码如下</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"># 导入urllib包</span><br><span class="line"><span class="keyword">import</span> urllib.request</span><br><span class="line"># 目标url</span><br><span class="line">url = <span class="string">'http://www.baidu.com'</span></span><br><span class="line"># 发送请求</span><br><span class="line">request = urllib.request.Request(url)</span><br><span class="line"># 获取请求结果</span><br><span class="line">response = urllib.request.urlopen(request)</span><br><span class="line"># 读取结果</span><br><span class="line">data = response.read()</span><br><span class="line">#设置解码方式</span><br><span class="line">data = data.decode(<span class="string">'utf-8'</span>)</span><br><span class="line">print(data)</span><br><span class="line"># 打印爬取网页的各类信息</span><br><span class="line">print(type(response))</span><br><span class="line">print(response.info)</span><br><span class="line">print(response.geturl())</span><br><span class="line">print(response.getcode)</span><br></pre></td></tr></table></figure>
 <p>以上就是本篇文章的所有内容。</p>
 
@@ -362,6 +362,22 @@
       
       
 
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/05/16/爬虫内容/urllib的用法/" rel="prev" title>
+                 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
       
 
       
@@ -437,7 +453,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-count">2</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -642,7 +658,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#第一篇爬虫日志"><span class="nav-number">1.</span> <span class="nav-text">第一篇爬虫日志</span></a></li></ol><li class="nav-item nav-level-1"><a class="nav-link" href="#写一篇最简单的爬虫。"><span class="nav-number"></span> <span class="nav-text">写一篇最简单的爬虫。</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#代码如下"><span class="nav-number"></span> <span class="nav-text">代码如下</span></a></li></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#爬虫日志"><span class="nav-number">1.</span> <span class="nav-text">爬虫日志</span></a></li></ol><li class="nav-item nav-level-1"><a class="nav-link" href="#写一篇最简单的爬虫。"><span class="nav-number"></span> <span class="nav-text">写一篇最简单的爬虫。</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#代码如下"><span class="nav-number"></span> <span class="nav-text">代码如下</span></a></li></div>
             
 
           </div>
