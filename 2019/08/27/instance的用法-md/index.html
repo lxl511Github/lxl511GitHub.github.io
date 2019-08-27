@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="urllib.request模块的用法urlopenurllib.request.urlopen(url)，括号内可传递的参数除了url，还有timeout, cafile,capath,context。 1response = urllib.request.urlopen(url, data=data, timeout=100,capath=None,cafile=None,context=No">
+<meta name="description" content="追风筝的人">
 <meta name="keywords" content="Jiayou520">
 <meta property="og:type" content="article">
-<meta property="og:title" content="爬虫">
-<meta property="og:url" content="http://yoursite.com/2019/05/16/爬虫内容/urllib的用法/index.html">
+<meta property="og:title" content="instance的用法.md">
+<meta property="og:url" content="http://yoursite.com/2019/08/27/instance的用法-md/index.html">
 <meta property="og:site_name" content="凌孝龙">
-<meta property="og:description" content="urllib.request模块的用法urlopenurllib.request.urlopen(url)，括号内可传递的参数除了url，还有timeout, cafile,capath,context。 1response = urllib.request.urlopen(url, data=data, timeout=100,capath=None,cafile=None,context=No">
+<meta property="og:description" content="追风筝的人">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-05-16T08:56:59.892Z">
+<meta property="og:updated_time" content="2019-08-27T09:00:31.218Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="爬虫">
-<meta name="twitter:description" content="urllib.request模块的用法urlopenurllib.request.urlopen(url)，括号内可传递的参数除了url，还有timeout, cafile,capath,context。 1response = urllib.request.urlopen(url, data=data, timeout=100,capath=None,cafile=None,context=No">
+<meta name="twitter:title" content="instance的用法.md">
+<meta name="twitter:description" content="追风筝的人">
 
 
 
@@ -120,13 +120,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2019/05/16/爬虫内容/urllib的用法/">
+  <link rel="canonical" href="http://yoursite.com/2019/08/27/instance的用法-md/">
 
 
 
 
 
-  <title>爬虫 | 凌孝龙</title>
+  <title>instance的用法.md | 凌孝龙</title>
   
 
 
@@ -258,12 +258,12 @@
   
   
 
-  <article class="post post-type-categories" itemscope itemtype="http://schema.org/Article">
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
   
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/05/16/爬虫内容/urllib的用法/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/27/instance的用法-md/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="小龙人">
@@ -280,7 +280,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">爬虫</h1>
+          <h1 class="post-title" itemprop="name headline">instance的用法.md</h1>
         
 
         <div class="post-meta">
@@ -292,8 +292,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-05-16T16:12:55+08:00">
-                2019-05-16
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-08-27T17:00:31+08:00">
+                2019-08-27
               </time>
             
 
@@ -330,14 +330,7 @@
       
 
       
-        <h1 id="urllib-request模块的用法"><a href="#urllib-request模块的用法" class="headerlink" title="urllib.request模块的用法"></a>urllib.request模块的用法</h1><h3 id="urlopen"><a href="#urlopen" class="headerlink" title="urlopen"></a>urlopen</h3><p>urllib.request.urlopen(url)，括号内可传递的参数除了url，还有timeout, cafile,capath,context。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">response = urllib.request.urlopen(url, data=data, timeout=<span class="number">100</span>,capath=None,cafile=None,context=None,cadefault=False)</span><br></pre></td></tr></table></figure>
-<h4 id="下面详细介绍各参数"><a href="#下面详细介绍各参数" class="headerlink" title="下面详细介绍各参数"></a>下面详细介绍各参数</h4><p>data：如果是字节流编码格式的内容，需要用bytes（）方法进行转化，<br>当传递这个参数后，请求方式就不再是GET，而是POST。bytes（str，encoding=’utf8’），bytes的第一个参数是字符串，如果是字典， 需要使用<em>urllib.parse.urlencode()</em>方法来将字典转化为字符串，第二个参数是编码格式。<br>timeout：设置超时时间，单位是s。<br>cafile：CA证书<br>capath：CA证书路径<br>context：必须是SSLContext类型，用来指定ssl设置。</p>
-<p>代码如下：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> urllib.parse</span><br><span class="line"><span class="keyword">import</span> urllib.request</span><br><span class="line"></span><br><span class="line">url = <span class="string">'http://httpbin.org/post'</span></span><br><span class="line"># 对参数data进行格式转化</span><br><span class="line">data = bytes(urllib.parse.urlencode(&#123;<span class="string">'word'</span>:<span class="string">'hello'</span>&#125;), encoding=<span class="string">'utf8'</span>)</span><br><span class="line"># urlopen 可传递的参数除了url 还有timout等其他参数</span><br><span class="line">response = urllib.request.urlopen(url, data=data, timeout=<span class="number">100</span>,capath=None,cafile=None,context=None,cadefault=False)</span><br><span class="line">print(response.read())</span><br></pre></td></tr></table></figure></p>
-<h3 id="Request的用法"><a href="#Request的用法" class="headerlink" title="Request的用法"></a>Request的用法</h3><p>urlopen（）方法可以实现最基本请求的发起，如果请求中需要加入Header等信息可以利用强大的Request类来构建。<br>Request的参数：url，data，header，origin_req_host, unverifable, method.<br>oringin_req_host: 请求方的host名称或IP<br>univerfable: 表示这个请求是不是无法验证的。默认为False，即有足够的请求权限。<br>method: 是一个字符串，表示请求方法，即GET,POST,PUT.</p>
-<p>代码如下：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> urllib.request</span><br><span class="line"><span class="keyword">import</span> urllib.parse</span><br><span class="line"></span><br><span class="line">url = <span class="string">'http://httpbin.org/post'</span></span><br><span class="line">headers = &#123;</span><br><span class="line">    <span class="string">'User-Agent'</span>: <span class="string">'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/50.0.2661.102 Safari/537.36'</span>,</span><br><span class="line">    <span class="string">'host'</span>: <span class="string">'httpbin.org'</span>,</span><br><span class="line">&#125;</span><br><span class="line">dict=&#123;</span><br><span class="line">    <span class="string">'name'</span>:<span class="string">'Germey'</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">data = bytes(urllib.parse.urlencode(dict),encoding=<span class="string">'utf8'</span>)</span><br><span class="line">equest = urllib.request.Request(url,data=data, headers=headers, method=<span class="string">'POST'</span>)</span><br><span class="line"># 发起请求并获取请求结果</span><br><span class="line">res = urllib.request.urlopen(request)</span><br><span class="line">print(res.read().decode(<span class="string">'utf-8'</span>))</span><br></pre></td></tr></table></figure></p>
-<p>以上就是本篇文章的所有内容</p>
-
+        
       
     </div>
     
@@ -380,8 +373,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/05/16/爬虫内容/最简单的爬虫/" rel="next" title="爬虫">
-                <i class="fa fa-chevron-left"></i> 爬虫
+              <a href="/2019/08/27/web内容/instance的用法/" rel="next" title>
+                <i class="fa fa-chevron-left"></i> 
               </a>
             
           </div>
@@ -389,10 +382,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/05/20/前端内容/前端基础/" rel="prev" title>
-                 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -444,17 +433,8 @@
       
 
       
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            文章目录
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            站点概览
-          </li>
-        </ul>
-      
 
-      <section class="site-overview-wrap sidebar-panel">
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -702,22 +682,6 @@
         </div>
       </section>
 
-      
-      <!--noindex-->
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-              
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#urllib-request模块的用法"><span class="nav-text">urllib.request模块的用法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#urlopen"><span class="nav-text">urlopen</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#下面详细介绍各参数"><span class="nav-text">下面详细介绍各参数</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Request的用法"><span class="nav-text">Request的用法</span></a></li></ol></li></ol></div>
-            
-
-          </div>
-        </section>
-      <!--/noindex-->
       
 
       
